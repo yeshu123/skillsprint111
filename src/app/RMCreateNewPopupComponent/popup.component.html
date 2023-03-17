@@ -1,0 +1,158 @@
+<!-- <div class="popup-header">
+  <h1 style="font-family: gill sans MT;">New Assignment</h1>
+</div> -->
+<!-- <div class="popup-container" (click)="preventClosing($event)">
+  <div class="popup">
+    <div class="popup-header">
+      <h2 style="font-family: gill sans mt;">New Assignment</h2>
+      <button class="close-button" (click)="closePopup()">X</button>
+    </div>
+    <div class="popup-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="popup-container">
+  <div class="popup" #popupElement>
+    <div class="popup-header">
+      <h2>New Assignment</h2>
+      <button class="close-button" (click)="closePopup()">X</button>
+    </div>
+    <div class="popup-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div> -->
+<div >
+<div class="popup-container" >
+  <div class="popup" >
+    <div class="popup-header">
+      <h2 style="font-weight: bold; font-size:22px;">New Assignment</h2>
+      <!-- <button class="close-button" (click)="closePopup()">X</button> -->
+      <button mat-dialog-close cdkFocusInitial style="font-size: 20px;">x</button>
+    </div>
+    <div class="popup-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+
+
+<form [formGroup]="companyform" class="popup-container">
+  <!-- <head>New Assignment</head> -->
+
+
+  <div style="text-align: left;padding-top: 20px; font-family: gill sans mt;">
+
+    <!-- <div style="padding-left: 400px;"><button style="color: black;border-color: white;" class="close-button"   (click)="closepopup()">X</button></div> -->
+  </div>
+  <div class="form-row">
+    <div class="form-group" hidden>
+      <label for="inputEmail4">ID</label>
+      <input type="text" class="form-control" id="inputEmail4"  formControlName="id" [(ngModel)]="id"
+        name="id" #ngModel />
+    </div>
+
+    <div class="form-group col-md-6">
+      
+      <label for="inputPassword4">VM ID</label>&nbsp;
+      <b style="color: red;">*</b>
+      <input type="text" class="form-control" id="inputPassword4"   formControlName="vamid"
+        [(ngModel)]="vamid" name="vamid" (blur)="UserInfo(vamid)" />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputAddress">Name</label>
+      <input type="text" class="form-control" id="inputAddress"  value="{{ userdetails.name }}"
+        formControlName="resourceName" name="resourceName" required readOnly />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputAddress2">Email</label>
+      <input type="text" class="form-control" id="inputAddress2" [value]="email" formControlName="email"
+        value="{{ userdetails.email }}" name="email" required readOnly />
+    </div>
+    <div class="form-group col-md-6">
+      <!-- <b style="color: red;">*</b> &nbsp; -->
+      <label for="inputAddress2">PM/DM Email</label>&nbsp;
+      <b style="color: red;">*</b> &nbsp;
+      <input type="text" class="form-control" id="inputAddress2" formControlName="manager"
+        [(ngModel)]="manager" name="manager" #ngModel required />
+    </div>
+
+    <div class="form-group col-md-6">
+      
+      <label for="inputState">Tech Track</label>&nbsp;
+      <b style="color: red;">*</b>
+      <select id="inputState" class="form-control" formControlName="techTrack" [(ngModel)]="techTrack" name="TechTrack"
+        #ngModel required (click)="dropdown()">
+        <option *ngFor="let techTrack of listitems" [value]="techTrack.techTrack">
+          {{ techTrack.techTrack }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+  
+      <label for="inputState">SME Email</label>
+      &nbsp;
+      <b style="color: red;">*</b>
+      <input id="inputState" class="form-control"   formControlName="sme" [(ngModel)]="sme" name="SME" #ngModel required />
+    </div>
+  </div>
+
+  <!-- <div class="form-group">
+      <label for="inputAddress">Category</label>
+      <input type="text" class="form-control" id="inputAddress"  "Category">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Program Name</label>
+      <input type="text" class="form-control" id="inputAddress2"  "Program Name">
+    </div> -->
+
+  <!-- <div class="form-row"> -->
+  <!-- <div class="form-group col-md-6">
+      <label for="inputCity">Start Date</label>
+      <input
+        id="startDate"
+        class="form-control"
+        type="date"
+         "MM/DD/YYY"
+        formControlName="startDate"
+
+        name="startDate"
+      />
+    </div> -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    
+      <label for="inputCity">Start Date</label>&nbsp;
+      <b style="color: red;">*</b>
+      <input id="startDate" class="form-control" type="date"   formControlName="startDate"
+        (change)="getEndDate($event)" name="startDate" [min]="minDate" />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputState">End Date</label>
+      <input id="endDate" class="form-control" type="date" formControlName="endDate" name="endDate"
+        value="{{ enddatedetails | date : 'dd-MM-yyyy' }}" [readOnly]="true" />
+    </div>
+    <!-- <div class="form-group col-md-6">
+      <label for="inputState">End Date</label>
+      <input
+        id="endDate"
+        class="form-control"
+        type="date"
+        formControlName="endDate"
+        name="endDate"
+        value="{{ enddatedetails | date : 'yyyy-MM-dd' }}"
+      />
+    </div> -->
+  </div>
+
+ 
+  <div class="form-group text-center">
+    <button (click)="submit()" class="btn btn-primary" style="font-size: 15px;color:white;width: 85px;">Save</button>
+  </div>
+  
+</form>
+</div>

@@ -1,0 +1,200 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="app.js"></script>
+</head>
+
+<body>
+  <form #myForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()">
+<div ng-app = "myApp" class = "container" style="width:700px;height:90vh; font-family:'Gill Sans MT'; font-size: 18px;">
+  <div ng-controller = "RegisterController" >
+    <!-- <form role = "form" class="well" ng-hide="ifSearchUser"> -->
+      <div style="text-align:center;">
+        <h3 style="font-size: 30px"><b>Sign Up</b></h3>
+      </div>
+<div class="d-flex flex-row mb-3 mt-5">
+<div class = "form-group mr-5">
+<label for = "name"> Name:  </label>
+<!-- <input type = "text" id = "name" class = "form-control" style="width: 300px" placeholder = "Enter Name " ng-model = "userModel.name"> -->
+<input
+            type="text"
+            class="form-control"
+            placeholder="Name"
+            name="Name"
+            [(ngModel)]="userModel.name"
+            required
+            #FirstName="ngModel"
+            [class.is-invalid]="FirstName.invalid && FirstName.touched"
+          />
+          <span
+            [class.d-none]="FirstName.valid || FirstName.untouched"
+            class="text-danger"
+            >Required</span
+          >
+</div>
+
+<div class = "form-group">
+<label for = "">VM ID:</label>
+<!-- <input type = "number" class = "form-control" style="width: 300px" placeholder = "Enter VM ID" ng-model = "userModel.VamID"> -->
+<input
+            type="number"
+            class="form-control"
+            placeholder="VAM ID"
+            name="Phone"
+            [(ngModel)]="userModel.vamId"
+            required
+            #Number="ngModel"
+            [class.is-invalid]="Number.invalid && Number.touched"
+          />
+          <span
+            [class.d-none]="Number.valid || Number.untouched"
+            class="text-danger"
+            >Vam ID Required</span
+          >
+</div>
+
+</div>
+
+<div class="d-flex flex-row">
+<div class = "form-group mr-5">
+<label for = "email"> Email:  </label>
+<!-- <input type = "email" id = "email" class = "form-control" style="width: 300px" placeholder = "Enter Email " ng-model = "userModel.email"> -->
+<input
+            type="email"
+            class="form-control"
+            placeholder="email"
+            name="Email"
+            [(ngModel)]="userModel.email"
+            required
+            #Email="ngModel"
+            [class.is-invalid]="Email.invalid && Email.touched"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
+          <span
+            [class.d-none]="Email.valid || Email.untouched"
+            class="text-danger"
+            >Please enter valid email</span
+          >
+</div>
+
+
+<div class = "form-group">
+  <label for = "password"> Password:  </label>
+  <!-- <input type = "password" id = "password" class = "form-control" style="width: 300px" placeholder = "Enter Password " ng-model = "userModel.password"> -->
+  <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            name="Password"
+            #Password="ngModel"
+            [(ngModel)]="userModel.password"
+            required
+          />
+          <span
+            [class.d-none]="Password.valid || Password.untouched"
+            class="text-danger"
+            >Password Required</span
+          >
+  </div>
+</div>
+ 
+<!-- <div class="form-group">
+  <p><b>Grade:</b></p>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="grade" #role="" id="a1" [(ngModel)]="selectedGrade" (change)="UpdateSelectedRole()" value="Grade A1">
+    <label class="form-check-label" for="a1"> &nbsp;&nbsp;&nbsp;Grade A1</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="grade" id="a2" [(ngModel)]="selectedGrade" (change)="UpdateSelectedRole()" value="Grade A2">
+    <label class="form-check-label" for="a2"> &nbsp;&nbsp;&nbsp; Grade A2</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="grade" id="a3" [(ngModel)]="selectedGrade" (change)="UpdateSelectedRole()" value="Grade A3">
+    <label class="form-check-label" for="a3"> &nbsp; &nbsp;&nbsp;Grade A3</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="grade" id="a4" [(ngModel)]="selectedGrade" (change)="UpdateSelectedRole()" value="Grade A4">
+    <label class="form-check-label" for="a4"> &nbsp; &nbsp; &nbsp;Grade A4</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="grade" id="a5" [(ngModel)]="selectedGrade" (change)="UpdateSelectedRole()" value="Grade A5">
+    <label class="form-check-label" for="a5"> &nbsp;&nbsp;&nbsp;Grade A5</label>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="role"><b>Role:</b></label>
+  <input type="text" class="form-control" id="role" name="role" [(ngModel)]="selectedRole" placeholder="Associate/SME" readonly>
+</div> -->
+
+<!-- <input type="button" class="btn btn-primary" (click)="onUserSubmit()" style="background-color: darkslategray; margin-left: 45%" value="Submit"> -->
+<!-- <div class="form-group">
+  <label for="role">Role:</label>
+  <select
+    class="form-control"
+    id="role"
+    name="role"
+    #role="ngModel"
+    [(ngModel)]="userModel.role"
+    required
+  >
+    <option value="">Select</option>
+    <option value="SME">Grade A5</option>
+    <option value="SME">Grade A4</option>
+    <option value="Associate">Grade A3</option>
+    <option value="Associate">Grade A2</option>
+    <option value="Associate">Grade A1</option>
+  </select>
+</div> -->
+<div class="form-group">
+  <label>Role:</label>&nbsp;
+  <input type="text" class="form-control" [value]="userModel.role" readonly ><br>
+  <div class="radio-group">
+    <label>
+      <input type="radio" name="role" [(ngModel)]="userModel.role" value="Associate"> Grade A1 - A3
+    </label><br>
+    <label>
+      <input type="radio" name="role" [(ngModel)]="userModel.role" value="SME"> Grade A5 - A4
+    </label><br>
+    <!-- <label>
+      <input type="radio" name="role" [(ngModel)]="userModel.role" value="SME"> Grade A4
+    </label><br> -->
+    <!-- <label>
+      <input type="radio" name="role" [(ngModel)]="userModel.role" value="Associate"> Grade A2
+    </label><br>
+    <label>
+      <input type="radio" name="role" [(ngModel)]="userModel.role" value="Associate"> Grade A1
+    </label><br> -->
+  </div>
+</div>
+
+
+
+<button
+          type="submit" 
+          (click)="onUserSubmit()"
+          class="btn btn-primary mt-3 my-btn"
+          [disabled]="myForm.invalid"
+          routerLink="/"
+        >
+          Submit
+        </button>
+
+
+
+      <!-- </form> -->
+      <div class="text-primary text-center mt-5 text-bold" *ngIf="submitted">
+        Data Submitted Successfully <br />
+        Reload the Page
+      </div>
+
+</div>
+</div>
+  </form>
+</body>
+</html>

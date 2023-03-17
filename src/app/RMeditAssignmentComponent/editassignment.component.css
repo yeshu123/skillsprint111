@@ -1,0 +1,57 @@
+.mat-elevation-z8{
+     width: 1200px;
+}
+.text{
+  text-align: center;
+}
+/* a{
+    padding: 5px;
+    color: white !important;
+} */
+.btn-primary{
+    background-color: #4a4946;
+  }
+ 
+  .btn-primary:active {
+    background-color: #4a4946 !important;
+  }
+  .program-cell {
+    position: relative;
+  }
+  
+  .program-name {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+  .program-info-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+  }
+  .mat-cell:hover {
+    font-size: 18px; /* Change the font size as desired */
+  }
+  
+  .program-info-icon:hover {
+    color: #333;
+  }
+  
+  .tooltip-custom {
+    font-size: 20px !important;
+  }
+  td{
+    font-family: Gill sans MT;
+    color: black;
+    font-size: 16px;
+    /* text-align: center; */
+    /* font-weight: bold; */
+  }
+  .text{
+    text-align: center;
+  }

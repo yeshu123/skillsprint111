@@ -1,0 +1,51 @@
+<!-- <div style="width: 200px;height:450px">
+    <div style="padding-left: 650px;"><button style="color: rgb(15, 14, 14);border-color: rgb(15, 15, 15);" class="close-button"   (click)="closepopup()">X</button></div>
+  <h3 style="color: teal;"><b><u>Write Code: </u></b></h3>
+ <form [formGroup]="formdata"  >
+        <!-- <input type="text" [(ngModel)] = "code" (change)="setValue()"> -->
+<!--<div class="form-group">
+      <label [hidden]="true">Program Status</label>
+      <input type="text"  class="form-control" formControlName="programStatus" [hidden]="true">
+    </div>
+  <div class="form-group">
+    <!-- <label>Code</label> -->
+<!--<textarea type="text"
+      style="width: 730px; height: 300px; resize: both"
+      class="form-control"
+   formControlName="programCode"
+   ></textarea>
+    </div >
+
+    <br />
+    <div style="padding-left: 315px; ">
+    <button style="height: 80px;width:120px;" class="btn btn-primary my-btn" (click)="onSubmit()"style=" font-size: 10px; color:white;width: 75px;"  >Submit</button>
+    </div>
+  </form>
+</div>
+
+
+ -->
+
+<div  class="popup-container">
+ <div class="popup-header">
+  <h2 style="font-weight: bold; font-size:22px">Update Code: </h2>
+  <button mat-dialog-close cdkFocusInitial style="font-size: 20px;">x</button>
+</div>
+
+<form [formGroup]="formdata">
+  <!-- <input type="text" [(ngModel)] = "code" (change)="setValue()"> -->
+  <div class="form-group">
+    <label [hidden]="true">Program Status</label>
+    <input type="text" class="form-control" formControlName="programStatus" [hidden]="true">
+  </div>
+  <div class="form-group">
+    <!-- <label>Code</label> -->
+    <textarea type="text" style="width: 730px; height: 400px; resize: both" class="form-control" oncopy="return false;"
+      formControlName="programCode"></textarea>
+      <button class="btn btn-primary my-btn" (click)="onSubmit()" style="margin-left:45%;margin-top: 20px;"
+     >Submit</button>
+  </div>
+
+ 
+</form>
+</div>

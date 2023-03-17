@@ -1,0 +1,33 @@
+.mat-elevation-z8{
+    width: 1200px;
+   
+}
+td{
+  font-family: gill sans mt;
+}
+/* .mark{
+    text-align: center ;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    
+    font-size: 15px;
+} */
+.save-button {
+    background: green;
+  }
+/* a{
+    padding: 5px;
+    color: white !important;
+} */
+.btn-primary{
+    background-color:  #4a4946;
+  }
+  .btn-primary:active {
+    background-color:  #4a4946 !important;
+  }
+
+  .text{
+    text-align: center;
+  }
